@@ -1,4 +1,3 @@
-// Calendar.js
 import React, { useState, useEffect } from "react";
 import CalendarDays from "./CalendarDays";
 import MonthView from "./MonthView";
@@ -6,7 +5,7 @@ import YearView from "./YearView";
 import CalendarHeader from "./CalendarHeader";
 import "./Calendar.css";
 
-import config from '../config/calendar-config';
+import config from "../config/calendar-config";
 
 const Calendar = (props) => {
   const weekdays = config.weekdays;
@@ -90,15 +89,25 @@ const Calendar = (props) => {
         months={months}
       />
       <div className="calendar-body">
-        <div className="table-header">
-          {isMonthView || isYearView
-            ? ""
-            : weekdays.map((weekday, index) => (
-                <div key={index} className="weekday">
-                  <p>{weekday}</p>
-                </div>
-              ))}
-        </div>
+        {isMonthView || isYearView ? (
+          ""
+        ) : (
+          <table className="calendar-table">
+            <thead>
+              <tr>
+                {weekdays.map((weekday, index) => (
+                  <th key={index} className="weekday">
+                    {weekday}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <CalendarDays
+                day={currentDay}
+                changeCurrentDay={changeCurrentDay}
+              />
+          </table>
+        )}
         {isMonthView ? (
           <MonthView
             months={months}
@@ -114,7 +123,7 @@ const Calendar = (props) => {
             handleNextClick={handleNextYearClick}
           />
         ) : (
-          <CalendarDays day={currentDay} changeCurrentDay={changeCurrentDay} />
+          ""
         )}
       </div>
     </div>

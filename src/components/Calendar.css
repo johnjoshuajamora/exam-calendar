@@ -21,15 +21,13 @@
 }
 
 h2 {
-  margin: 0; /* Remove default margin */
-  text-align: center; /* Center the text within the middle column */
+  margin: 0;
+  text-align: center;
 }
 
 .calendar-body {
   width: 100%;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 .table-header {
@@ -48,19 +46,18 @@ h2 {
 
 .table-content {
   width: 100%;
-  flex-grow: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   box-sizing: border-box;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .calendar-day {
   width: 125px;
   height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
 .calendar-day:hover {
@@ -74,13 +71,7 @@ h2 {
 }
 
 .calendar-day p {
-  right: 10px;
   color: #a6a6a6;
-  text-align: center;
-}
-
-.calendar-day p:hover {
-  color: #fff;
 }
 
 .current p {
@@ -90,10 +81,6 @@ h2 {
 .selected p {
   font-weight: bold;
   color: #fff;
-}
-
-.month-text {
-  cursor: pointer;
 }
 
 .today {

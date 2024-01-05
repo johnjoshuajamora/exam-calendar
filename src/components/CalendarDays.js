@@ -2,10 +2,14 @@ import React from "react";
 
 function CalendarDays(props) {
   const currentDay = new Date();
-  
+
   const handleDateClick = (clickedDate) => {
     props.changeCurrentDay(clickedDate, true);
   };
+
+  if (!props.day) {
+    return null;
+  }
 
   const firstDayOfMonth = new Date(
     props.day.getFullYear(),
@@ -38,18 +42,36 @@ function CalendarDays(props) {
     currentDays.push(calendarDay);
   }
 
+  const rows = [];
+  let cells = [];
+
+  currentDays.forEach((data, index) => {
+    cells.push(
+      <td
+        key={data.currentMonth + "-" + data.day}
+        className={`calendar-day${data.currentMonth ? " current" : ""}${
+          data.selected ? " selected" : ""
+        }${
+          currentDay.toDateString() === data.date.toDateString() ? " today" : ""
+        }`}
+        onClick={() => handleDateClick(data.date)}
+      >
+        <p>{data.day}</p>
+      </td>
+    );
+
+    if ((index + 1) % 7 === 0) {
+      rows.push(<tr key={index}>{cells}</tr>);
+      cells = [];
+    }
+
+    if (index === currentDays.length - 1 && cells.length > 0) {
+      rows.push(<tr key={index + 1}>{cells}</tr>);
+    }
+  });
+
   return (
-    <div className="table-content">
-      {currentDays.map((data, index) => (
-        <div
-          key={data.currentMonth + "-" + data.day}
-          className={`calendar-day${data.currentMonth ? " current" : ""}${data.selected ? " selected" : ""}${currentDay.toDateString() === data.date.toDateString() ? " today" : ""}`}
-          onClick={() => handleDateClick(data.date)}
-        >
-          <p>{data.day}</p>
-        </div>
-      ))}
-    </div>
+    <tbody>{rows}</tbody>
   );
 }
 
