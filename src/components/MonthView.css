@@ -24,13 +24,13 @@
   }
   
   .month-button.selected {
-    background-color: #db3d44;
+    background-color: #cc0000;
     border-radius: 50%;
     color: #fff;
   }
   
   .month-button:hover {
-    background-color: #db3d44;
+    background-color: #cc0000;
     border-radius: 50%;
     color: #fff;
   }

@@ -6,7 +6,6 @@
   gap: 10px;
   justify-content: center;
   box-sizing: border-box;
-  margin-left: 80px;
 }
 
 .year-button {
@@ -16,10 +15,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .year-button.selected {
-  background-color: #db3d44;
+  background-color: #cc0000;
   border-radius: 50%;
   color: #fff;
 }
@@ -30,7 +30,7 @@
 }
 
 .year-button:hover {
-  background-color: #db3d44;
+  background-color: #cc0000;
   border-radius: 50%;
   color: #fff;
 }
