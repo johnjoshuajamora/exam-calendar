@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Calendar from "./components/Calendar";
+import DatePicker from "./components/DatePicker";
 
-function App() {
+const App = () => {
+  const [state, setState] = useState({
+    currentDay: new Date(),
+    selectedDate: new Date()
+  });
+
+  const changeCurrentDay = (newDay, isCloseCalendar) => {
+    const clonedNewDay = new Date(newDay);
+    clonedNewDay.setHours(0, 0, 0, 0);
+
+    setState((prev) => ({
+      ...prev,
+      currentDay: clonedNewDay,
+      selectedDate: clonedNewDay
+    }));
+    isCloseCalendar && toggleCalendar();
+  };
+
+  const toggleCalendar = () => {
+    setState((prev) => ({
+      ...prev,
+      isCalendarOpen: !prev.isCalendarOpen,
+    }));
+  };
+
+  useEffect(() => {
+    setState((prev) => ({
+      ...prev,
+      selectedDate: state.currentDay,
+    }));
+  }, [state.currentDay]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <DatePicker
+        selectedDate={state.selectedDate}
+        openCalendar={toggleCalendar}
+      />
+      {state.isCalendarOpen && (
+        <Calendar
+          state={state}
+          changeCurrentDay={changeCurrentDay}
+        />
+      )}
     </div>
   );
-}
+};
 
 export default App;
