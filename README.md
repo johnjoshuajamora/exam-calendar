@@ -36,20 +36,6 @@ In the project directory, you can run the following scripts:
 
 Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes.
 
-### `npm test`
-
-Launches the test runner in interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder. It bundles React in production mode and optimizes the build for the best performance.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time.
-
 ## Learn More
 
 Explore the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started) to learn more about Create React App.
