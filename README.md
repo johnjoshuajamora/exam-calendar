@@ -1,6 +1,6 @@
 # Getting Started with Exam Calendar
 
-This project is a React application for managing exams and schedules.
+This project is a React application for an exam/assessment for a company.
 
 ## Prerequisites
 
@@ -41,11 +41,3 @@ Runs the app in development mode. Open [http://localhost:3000](http://localhost:
 Explore the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started) to learn more about Create React App.
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-## Deployment
-
-To deploy the app, follow the steps mentioned in the [deployment documentation](https://facebook.github.io/create-react-app/docs/deployment).
-
-## Troubleshooting
-
-If you encounter issues, refer to the [troubleshooting guide](https://facebook.github.io/create-react-app/docs/troubleshooting).
